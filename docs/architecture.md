@@ -4,7 +4,6 @@ Documento de desenho autónomo para a dissertação de mestrado sobre a camada d
 
 Este documento reflete o sistema tal como está em 2026: o que já existe em código, o que está especificado mas ainda não construído, e o que é, portanto, teu para desenhar. Estas três categorias são mantidas explicitamente separadas ao longo do texto, porque o erro mais caro que podes cometer cedo é procurar código que ainda não existe, ou reconstruir algo que já existe.
 
----
 
 ## Parte 0. Como ler este documento
 
@@ -15,7 +14,6 @@ Este documento reflete o sistema tal como está em 2026: o que já existe em có
 
 Um glossário curto fecha o documento.
 
----
 
 ## Parte 1. A visão global: o que é o BioChef
 
@@ -53,7 +51,6 @@ Os serviços de apoio atravessam as quatro camadas: **identidade** (LifeScience 
 O sistema inteiro, com o registry no centro e a camada federada (o teu trabalho) destacada:
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','fontSize':'14px','lineColor':'#6b7280','primaryColor':'#f9fafb','primaryTextColor':'#111827','primaryBorderColor':'#9ca3af'},'flowchart':{'curve':'basis','nodeSpacing':55,'rankSpacing':65,'padding':12}}}%%
 flowchart TB
     subgraph PUB["1 · Camada de publicação"]
         REC("biochef-recipes<br/>definições de tools e trainers")
@@ -117,7 +114,6 @@ Sê preciso sobre a linha de partida:
 
 Por isso, quando leres "o Agente", segura duas ideias ao mesmo tempo: existe um Agente **real** hoje (um executor de workflows sobre Snakemake), e existe um Agente em modo silo **desenhado** (um cliente de treino de FL) que vais construir, idealmente estendendo o real em vez de começar do zero.
 
----
 
 ## Parte 2. O teu global: a camada de federated learning como um todo
 
@@ -267,7 +263,6 @@ sequenceDiagram
 - **Ao teu lado (referência, não dependência):** o trabalho de federated Random Forest do grupo (Cotorobai et al., com PySyft). É um *método* que podes empacotar como trainer de referência para correr na tua infraestrutura. Não é a infraestrutura, e não estás a redemonstrá-lo.
 - **Tu (a contribuição):** a camada de FL como subsistema a funcionar, *mais* a análise de privacidade (modelo de ameaça, contabilização do orçamento de DP, agregação segura, fuga medida e compromisso privacidade-utilidade) que a torna credível para dados genómicos num TRE.
 
----
 
 ## Parte 3. Os detalhes: componentes que vais desenhar e construir
 
@@ -367,7 +362,6 @@ A decisão deve sair da avaliação de frameworks (ver `fl-frameworks.md`), julg
 - **LS-AAI / OIDC.** Já é a espinha de identidade da plataforma. O Agregador trata-o como o emissor OIDC para a sua API voltada para o utilizador; a UI redireciona os utilizadores para ele no login. Consome-lo; não o constróis.
 - **Observabilidade.** Já é o canal de eventos e métricas da plataforma. O Agregador reporta para ele a atividade de sessão e por ronda; o silo reporta os eventos do ciclo de vida das rondas. A UI consome uma vista filtrada para o progresso em tempo real, e os operadores têm o fluxo completo para dashboards e auditoria. O teu trabalho é *emitir* os eventos certos, não construir o pipeline.
 
----
 
 ## Parte 4. Sequência de construção e questões em aberto
 
@@ -399,7 +393,6 @@ O princípio da ordenação: **chegar a uma ronda a correr o mais depressa poss�
 - **Os dados genómicos reais** podem demorar a obter pelos canais FEGA/GDI. Mantém um conjunto de dados não-IID **sintético** (ex.: via partição de Dirichlet) como alternativa, para que a validação nunca fique bloqueada por acesso a dados.
 - **Âmbito.** "Tudo" é a ambição certa para o sistema mas uma armadilha para o calendário. A ordenação fatia-fina-primeiro em 4.1 é a mitigação: ter sempre algo que corre.
 
----
 
 ## Glossário
 
