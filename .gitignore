@@ -1,0 +1,36 @@
+# Nunca versionar dados nem nada derivado de dados reais
+*.csv
+*.tsv
+*.vcf
+*.vcf.gz
+*.bam
+*.cram
+*.fastq
+*.fastq.gz
+data/
+datasets/
+
+# Pesos de modelo / binários grandes
+*.pt
+*.pth
+*.h5
+*.onnx
+*.pkl
+*.joblib
+models/
+checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Sistema operativo / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
