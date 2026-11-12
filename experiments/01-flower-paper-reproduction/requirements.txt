@@ -1,0 +1,7 @@
+flwr==1.7.0
+numpy
+pandas
+matplotlib
+torch
+scikit-learn
+openpyxl
