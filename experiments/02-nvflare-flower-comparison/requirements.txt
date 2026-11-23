@@ -1,0 +1,7 @@
+flwr==1.7.0
+numpy
+pandas
+torch
+scikit-learn
+openpyxl
+nvflare==2.9.1

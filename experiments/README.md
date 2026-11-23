@@ -18,4 +18,5 @@ Junta código e configs pequenos ao lado do `notes.md`. **Não** juntes conjunto
 
 | # | Experiência | Questão | Estado |
 |---|---|---|---|
-| 01 | | | planeada |
+| 01 | Flower paper reproduction | Reproduzir o F-LSTM e comparar configurações de otimização e scaler | concluída |
+| 02 | NVFlare vs. Flower local comparison | Replicar o mesmo FedAvg em NVFlare e comparar operação, rede e privacidade | resultados numéricos locais concluídos; validação TRE/privacidade pendente |
